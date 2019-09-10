@@ -1141,6 +1141,15 @@
                 p.resolve = resolve;
                 p.reject = reject;
             });
+
+            p.promise.success = function (result) {
+                p.resolve(result);
+                return p.promise;
+            };
+            p.promise.error = function (result) {
+                p.reject(result);
+                return p.promise;
+            };
             return p;
         }
 
